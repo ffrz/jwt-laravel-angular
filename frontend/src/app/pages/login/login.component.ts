@@ -43,7 +43,8 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
         next: () => {
-          this.router.navigate(['/dashboard']); // Redirect to a protected page
+          window.location.href='/dashboard';
+          //this.router.navigate(['/dashboard']); // Redirect to a protected page
         },
         error: (err: any) => {
           this.errorMessage = 'Invalid credentials';

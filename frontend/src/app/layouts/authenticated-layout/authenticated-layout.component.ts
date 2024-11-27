@@ -30,8 +30,8 @@ export class AuthenticatedLayoutComponent {
   logout() {
     this.authService.logout().subscribe({
       next: () => {
-        // FIXME: redirect masih gagal, baris ini belum terpanggil
-        this.router.navigate(['/login']);
+        window.location.href='/login';
+        // this.router.navigate(['/login']);
       },
       error: (err: any) => {
         console.error(err);
