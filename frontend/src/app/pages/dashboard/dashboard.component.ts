@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,10 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  user: any;
   authService = inject(AuthService);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.user = this.authService.getUserFromToken();
+    console.log(this.user);
+  }
 
   logout() {
     this.authService.logout().subscribe({

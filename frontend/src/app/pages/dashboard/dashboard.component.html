@@ -1,2 +1,8 @@
-<p>dashboard works!</p>
+<h1>Hello, {{ user.name }}</h1>
+<h4 class="my-3 text-xl font-bold">Account information</h4>
+<p>
+  Email: {{ user.email }}<br>
+  Name: {{ user.name }}<br>
+  Role: {{ user.role }}<br>
+</p>
 <button (click)="logout()">Logout</button>

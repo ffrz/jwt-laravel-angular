@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,23 @@ export class AuthService {
 
   private removeToken() {
     localStorage.removeItem(this.tokenKey);
+  }
+
+  decodeToken(token: string): any {
+    try {
+      return jwtDecode(token);
+    } catch (error) {
+      console.error('Token decoding failed', error);
+      return null;
+    }
+  }
+
+  // Get user info from the decoded JWT token
+  getUserFromToken(): any {
+    const token = this.getToken();
+    if (token) {
+      return this.decodeToken(token); // Extract user data from token
+    }
+    return null;
   }
 }
