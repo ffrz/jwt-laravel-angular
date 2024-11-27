@@ -8,7 +8,8 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000/api/v1'; // Replace with your API endpoint
+  // TODO: pindahin ke global constants variables
+  private apiUrl = 'http://localhost:8000/api/v1';
   private tokenKey = 'auth_token';
 
   private loggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
@@ -32,7 +33,6 @@ export class AuthService {
   logout() {
     return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
       map((response: any) => {
-        console.log(response);
         this.removeToken();
         this.loggedInSubject.next(false);
         return response;
@@ -65,11 +65,10 @@ export class AuthService {
     }
   }
 
-  // Get user info from the decoded JWT token
   getUserFromToken(): any {
     const token = this.getToken();
     if (token) {
-      return this.decodeToken(token); // Extract user data from token
+      return this.decodeToken(token);
     }
     return null;
   }

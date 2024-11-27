@@ -1,4 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import './my-theme.scss';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// Bikin global custom CSS disini
+
+html {
+  --mat-toolbar-mobile-height: 40px;
+  --mat-toolbar-standard-height: 40px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

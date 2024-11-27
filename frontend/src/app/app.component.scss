@@ -1,0 +1,29 @@
+nav {
+  width: 800px;
+  margin: 0 auto;
+}
+
+nav ul {
+  margin: 10px 0;
+}
+
+li {
+  display: inline-flex;
+  margin: 0 5px;
+}
+
+a {
+  color: #333;
+  background: #ddd;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #111;
+  background: #eee;
+}
+
+a.router-link-active {
+  color: blue;
+}

@@ -1,0 +1,42 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 280px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar .right-nav a {
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+mat-nav-list {
+  padding: 10px;
+
+  a.mat-mdc-list-item {
+    margin: 5px 0;
+    height: 40px;
+  }
+
+  a.mat-mdc-list-item:hover {
+    background-color: #ddd;
+  }
+
+  a.active {
+    background-color: #ccc;
+  }
+}
+
